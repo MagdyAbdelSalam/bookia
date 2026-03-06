@@ -16,7 +16,7 @@ class CustomTextRowToRegister extends StatelessWidget {
             fontWeight: FontWeight.bold,
             color: Colors.black
         ),),
-        Text(" Register Now".tr(),style: TextStyle(
+        Text("Register Now".tr(),style: TextStyle(
           fontSize: 14.sp,
           fontWeight: FontWeight.bold,
           color: Color(0xffBFA054),

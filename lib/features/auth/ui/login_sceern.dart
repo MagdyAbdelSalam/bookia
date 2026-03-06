@@ -45,13 +45,14 @@ class LoginSceern extends StatelessWidget {
                 SizedBox(height: 13.h,),
                 CustomPasswordText(),
                 SizedBox(height: 30.h,),
-                AppButton(title: 'Login', onTap: (){}),
+                AppButton(title: 'Login'.tr(), onTap: (){}),
                 SizedBox(height: 34.h,),
                 CustomDivider(),
+                SizedBox(height: 20.h,),
                 AppBottomLogo(data: "Sign in with Google".tr(), bottmColor: Color(0xffFFFFFF), image: AssetImage(Assets.images.googleIcon.path), textColor: Color(0xff6A707C)),
                 SizedBox(height: 15.h,),
                 AppBottomLogo(data: "Sign in with Apple".tr(), bottmColor: Color(0xffFFFFFF), image: AssetImage(Assets.images.appleIcon.path), textColor: Color(0xff6A707C)),
-                SizedBox(height: 80.h,),
+                SizedBox(height: 65.h,),
                 CustomTextRowToRegister(),
 
 

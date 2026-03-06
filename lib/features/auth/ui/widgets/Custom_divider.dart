@@ -13,7 +13,7 @@ class CustomDivider extends StatelessWidget {
           radius: BorderRadius.circular(10.sp),
           color: Color(0xffE8ECF4),
         )),
-        Text('          Or          '.tr(),style: TextStyle(
+        Text('Or'.tr(),style: TextStyle(
             fontSize: 14.sp,
             color: Color(0xff6A707C)
         ),),

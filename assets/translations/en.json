@@ -18,6 +18,13 @@
   "Confirm password": "Confirm password",
   "Register": "Register",
   "account": "Already have an account?",
-  "Login Now": "Login Now"
-
+  "Login Now": "Login Now",
+  "dm": "Don't worry! It occurs. Please enter the email address linked with your account.",
+  "Send Code": "Send Code",
+  "Remember Password?": "Remember Password?",
+  "OTP Verification": "OTP Verification",
+  "Enter the verification code we just sent on your email address.": "Enter the verification code we just sent on your email address.",
+  "Didn’t received code?": "Didn’t received code?",
+  " Resend": " Resend",
+  "Verify": "Verify"
 }

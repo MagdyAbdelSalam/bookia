@@ -4,8 +4,6 @@
 
 <img width="375" height="812" alt="Register Screen" src="https://github.com/user-attachments/assets/bcf1c91d-05d1-4777-bfec-7ee25c57a8e1" />
 
-<img width="375" height="812" alt="Register Screen ar" src="https://github.com/user-attachments/assets/8a057a26-cacc-4b3c-b4a0-c05cda885eea" />
-
 <img src="https://github.com/user-attachments/assets/6b97ce4e-8ea8-4054-bc81-6859daf0ff74" width="375" height="812" />
 
 <img src="https://github.com/user-attachments/assets/72977929-1630-4916-a41c-d6fd50c49958" width="375" height="812" />

@@ -1,52 +1,64 @@
-import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
-class CustomTextFormField extends StatelessWidget {
-  final Widget? suffix;
-  final   String data;
+import '../../gen/assets.gen.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_text_style.dart';
+
+class CustomTextFormField extends StatefulWidget {
+  final String hintText;
+  final TextInputType? keyboardType;
+  final bool isPassword;
   final TextEditingController? controller;
-  const CustomTextFormField({super.key, this.suffix, required this.data, this.controller});
+  const
+  CustomTextFormField({super.key, required this.hintText, this.keyboardType,
+    this.isPassword=false, this.controller
 
+  });
+
+  @override
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
+}
+
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
+  bool isObscure=true;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onTapOutside: (v){
+      controller: widget.controller,
+      onTapUpOutside: (v){
         FocusScope.of(context).unfocus();
       },
-      controller:controller ,
+      cursorColor: AppColors.primaryColor,
+      keyboardType:widget.keyboardType ,
+      obscureText: widget.isPassword&&isObscure,
       decoration: InputDecoration(
-        label:Text(data.tr()),
-        filled: true,
-        fillColor: Color(0xffE8ECF4),
-        labelStyle: TextStyle(
-            fontSize: 15.sp,
-            color: Color(0xff8391A1)
-        ),
-        suffix: suffix,
-        enabledBorder:OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(
-                width: 0,
-                color: Color(0xffE8ECF4)
-            ),
-        ),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(
-              width: 0,
-              color: Color(0xffE8ECF4)
-            ),
-        ),
-        errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8.r),
-            borderSide: BorderSide(
-                width: 0
-            )
-        ),
+          suffixIcon:widget.isPassword? Padding(
+            padding:  EdgeInsets.all(8.0.r),
+            child: InkWell(
+                onTap: (){
+                  setState(() {
+                    isObscure=!isObscure;
+                  });
+                },
+                child:isObscure? SvgPicture.asset(Assets.images.icon):Icon(Icons.visibility_off,size: 15,)),
+          ):null,
+          fillColor: AppColors.grayColor,
+          filled: true,
+          hintText: widget.hintText,
+          hintStyle: AppTextStyle.hintStyle,
+          border: OutlineInputBorder(
 
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.borderColor)
+          ),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors.primaryColor)
+          )
       ),
-
     );
   }
 }

@@ -41,7 +41,7 @@ class OtpVerificationScreen extends StatelessWidget {
                 SizedBox(height: 38.h,),
                 AppButton(title: 'Verify'.tr(), onTap: (){}),
                 SizedBox(height: 361.h,),
-                CustomTextRowToRegister(text: 'Didn’t received code?'.tr(), text2: 'Resend'.tr())
+                CustomTextRowToRegister(text: 'Didn’t received code?'.tr(), text2: 'Resend'.tr(), onTap: () {  },)
               ],
             ),
           ),

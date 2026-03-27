@@ -6,7 +6,7 @@ class AppButton extends StatelessWidget {
   final String title;
   final Color? color;
   final void Function()? onTap;
-   AppButton({super.key, required this.title,  this.color, required this.onTap});
+   const AppButton({super.key, required this.title,  this.color, required this.onTap});
 
 
   @override

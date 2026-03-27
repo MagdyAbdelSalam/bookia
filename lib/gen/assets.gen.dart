@@ -17,6 +17,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/CLAUDE.md
   String get claude => 'assets/images/CLAUDE.md';
 
+  /// File path: assets/images/Claude Setup.exe
+  String get claudeSetup => 'assets/images/Claude Setup.exe';
+
+  /// File path: assets/images/Icon.svg
+  String get icon => 'assets/images/Icon.svg';
+
   /// File path: assets/images/apple_icon.png
   AssetGenImage get appleIcon =>
       const AssetGenImage('assets/images/apple_icon.png');
@@ -39,6 +45,8 @@ class $AssetsImagesGen {
   /// List of all assets
   List<dynamic> get values => [
     claude,
+    claudeSetup,
+    icon,
     appleIcon,
     googleIcon,
     splash,

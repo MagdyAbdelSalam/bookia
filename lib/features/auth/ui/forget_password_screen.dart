@@ -34,13 +34,13 @@ class ForgetPasswordScreen extends StatelessWidget {
                 color: AppColors.greyColor,
               ),),
               SizedBox(height: 30.h,),
-              CustomTextFormField(data: 'enter email'.tr()),
+              CustomTextFormField(hintText: 'enter email'.tr(),),
               SizedBox(height: 38.h,),
               AppButton(title: 'Send Code'.tr(), onTap: (){
                 Navigator.pushNamed(context, AppRoutes.otpVerification);
               }),
               SizedBox(height: 361.h,),
-              CustomTextRowToRegister(text: 'Remember Password?'.tr(), text2: 'Login'.tr())
+              CustomTextRowToRegister(text: 'Remember Password?'.tr(), text2: 'Login'.tr(), onTap: () {  },)
             ],
           ),
         ),

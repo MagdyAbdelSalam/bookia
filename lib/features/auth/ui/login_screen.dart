@@ -1,15 +1,18 @@
 
+import 'package:bookstore/core/widgets/app_button.dart';
 import 'package:bookstore/core/widgets/app_button_logo.dart';
 import 'package:bookstore/features/auth/ui/widgets/Custom_divider.dart';
 import 'package:bookstore/core/widgets/custom_appbar.dart';
-import 'package:bookstore/features/auth/ui/widgets/auth_bloc_listener.dart';
 import 'package:bookstore/features/auth/ui/widgets/custom_password_text.dart';
 import 'package:bookstore/features/auth/ui/widgets/custom_text_row_register.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../core/routes/app_routes.dart';
 import '../../../core/widgets/custom_text_form_field.dart';
 import '../../../gen/assets.gen.dart';
+import '../cubit/auth_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -63,7 +66,43 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 13.h,),
               CustomPasswordText(),
               SizedBox(height: 30.h,),
-              AuthBlocListener(email: emailController.text, password: passwordController.text),
+                BlocListener<AuthCubit, AuthState>(
+                  listener: (context, state) {
+                    if (state is AuthLoadingState) {
+                      showDialog(
+                        context: context,
+                        builder: (_) => const Center(child: CircularProgressIndicator()),
+                      );
+                    } else if (state is AuthErrorState) {
+                      Navigator.pop(context);
+                      showDialog(
+                        context: context,
+                        builder: (_) => const AlertDialog(
+                          title: Text("Error"),
+                          content: Text("Something wrong please try again"),
+                        ),
+                      );
+                    } else if (state is AuthSuccessState) {
+                      Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        AppRoutes.bottomNavBarScreen,
+                            (route) => false,
+                      );
+                    }
+                  },
+                  child: AppButton(
+                    title: "Login".tr(),
+                    onTap: () {
+                      print("EMAIL: ${emailController.text}");
+                      print("PASSWORD: ${passwordController.text}");
+
+                      context.read<AuthCubit>().login(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                      );
+                    },
+                  ),
+                ),
               SizedBox(height: 34.h,),
               CustomDivider(),
               SizedBox(height: 20.h,),

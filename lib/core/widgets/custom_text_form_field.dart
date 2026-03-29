@@ -43,9 +43,9 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                     isObscure=!isObscure;
                   });
                 },
-                child:isObscure? SvgPicture.asset(Assets.images.icon):Icon(Icons.visibility_off,size: 15,)),
+                child:isObscure? Icon(Icons.visibility):Icon(Icons.visibility_off,)),
           ):null,
-          fillColor: AppColors.grayColor,
+          fillColor: AppColors.grrayColor,
           filled: true,
           hintText: widget.hintText,
           hintStyle: AppTextStyle.hintStyle,

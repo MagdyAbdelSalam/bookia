@@ -9,18 +9,22 @@ class CustomDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Divider(
-          radius: BorderRadius.circular(10.sp),
-          color: Color(0xffE8ECF4),
-        )),
-        Text('Or'.tr(),style: TextStyle(
-            fontSize: 14.sp,
-            color: Color(0xff6A707C)
-        ),),
-        Expanded(child: Divider(
-          radius: BorderRadius.circular(10.sp),
-          color: Color(0xffE8ECF4),
-        ))
+        Expanded(
+          child: Divider(
+            radius: BorderRadius.circular(10.sp),
+            color: Color(0xffE8ECF4),
+          ),
+        ),
+        Text(
+          'Or'.tr(),
+          style: TextStyle(fontSize: 14.sp, color: Color(0xff6A707C)),
+        ),
+        Expanded(
+          child: Divider(
+            radius: BorderRadius.circular(10.sp),
+            color: Color(0xffE8ECF4),
+          ),
+        ),
       ],
     );
   }

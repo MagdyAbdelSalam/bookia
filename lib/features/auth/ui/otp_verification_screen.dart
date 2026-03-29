@@ -18,30 +18,32 @@ class OtpVerificationScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.symmetric(vertical: 11.h, horizontal: 24.w),
+            padding: EdgeInsets.symmetric(vertical: 11.h, horizontal: 24.w),
             child: Column(
               children: [
-                SizedBox(height: 50.h,),
-                Row(
-                  children: [
-                    CustomAppbar(),
-                  ],
+                SizedBox(height: 50.h),
+                Row(children: [CustomAppbar()]),
+                SizedBox(height: 30.h),
+                Text('OTP Verification'.tr(), style: TextStyle(fontSize: 30)),
+                Text(
+                  'Enter the verification code we just sent on your email address.'
+                      .tr(),
+                  style: TextStyle(color: AppColors.greyColor),
                 ),
-                SizedBox(height: 30.h,),
-                Text('OTP Verification'.tr(),style: TextStyle(
-                  fontSize: 30,
-                ),),
-                Text('Enter the verification code we just sent on your email address.'.tr(),style: TextStyle(
-                  color: AppColors.greyColor,
-                ),),
-                SizedBox(height: 30.h,),
-                OtpInput(onCompleted: (otp) {
-                  print('OTP Entered: $otp');
-                },),
-                SizedBox(height: 38.h,),
-                AppButton(title: 'Verify'.tr(), onTap: (){}),
-                SizedBox(height: 361.h,),
-                CustomTextRowToRegister(text: 'Didn’t received code?'.tr(), text2: 'Resend'.tr(), onTap: () {  },)
+                SizedBox(height: 30.h),
+                OtpInput(
+                  onCompleted: (otp) {
+                    print('OTP Entered: $otp');
+                  },
+                ),
+                SizedBox(height: 38.h),
+                AppButton(title: 'Verify'.tr(), onTap: () {}),
+                SizedBox(height: 361.h),
+                CustomTextRowToRegister(
+                  text: 'Didn’t received code?'.tr(),
+                  text2: 'Resend'.tr(),
+                  onTap: () {},
+                ),
               ],
             ),
           ),

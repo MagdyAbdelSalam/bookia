@@ -19,7 +19,7 @@ class BookSotreApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
-            fontFamily: 'DM'
+              fontFamily: 'DM'
           ),
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,

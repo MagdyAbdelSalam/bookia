@@ -1,4 +1,3 @@
-
 import 'package:bookstore/core/routes/app_routes.dart';
 import 'package:bookstore/core/theme/app_colors.dart';
 import 'package:bookstore/core/widgets/app_button.dart';
@@ -17,30 +16,29 @@ class ForgetPasswordScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.symmetric(vertical: 11.h, horizontal: 24.w),
+          padding: EdgeInsets.symmetric(vertical: 11.h, horizontal: 24.w),
           child: Column(
             children: [
-              SizedBox(height: 50.h,),
-              Row(
-                children: [
-                CustomAppbar(),
-                ],
+              SizedBox(height: 50.h),
+              Row(children: [CustomAppbar()]),
+              SizedBox(height: 30.h),
+              Text('Forgot Password?'.tr(), style: TextStyle(fontSize: 30)),
+              Text('dm'.tr(), style: TextStyle(color: AppColors.greyColor)),
+              SizedBox(height: 30.h),
+              CustomTextFormField(hintText: 'enter email'.tr()),
+              SizedBox(height: 38.h),
+              AppButton(
+                title: 'Send Code'.tr(),
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.otpVerification);
+                },
               ),
-              SizedBox(height: 30.h,),
-              Text('Forgot Password?'.tr(),style: TextStyle(
-                fontSize: 30,
-              ),),
-              Text('dm'.tr(),style: TextStyle(
-                color: AppColors.greyColor,
-              ),),
-              SizedBox(height: 30.h,),
-              CustomTextFormField(hintText: 'enter email'.tr(),),
-              SizedBox(height: 38.h,),
-              AppButton(title: 'Send Code'.tr(), onTap: (){
-                Navigator.pushNamed(context, AppRoutes.otpVerification);
-              }),
-              SizedBox(height: 361.h,),
-              CustomTextRowToRegister(text: 'Remember Password?'.tr(), text2: 'Login'.tr(), onTap: () {  },)
+              SizedBox(height: 361.h),
+              CustomTextRowToRegister(
+                text: 'Remember Password?'.tr(),
+                text2: 'Login'.tr(),
+                onTap: () {},
+              ),
             ],
           ),
         ),

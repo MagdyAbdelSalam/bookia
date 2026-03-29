@@ -1,4 +1,3 @@
-
 import 'package:bookstore/core/routes/app_routes.dart';
 import 'package:easy_localization/easy_localization.dart' as login;
 import 'package:flutter/material.dart';
@@ -6,11 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../cubit/auth_cubit.dart';
 
-
-class AuthBlocListener extends StatelessWidget {
-  var emailController= TextEditingController();
-  var passwordController= TextEditingController();
-    AuthBlocListener({super.key,});
+ class AuthBlocListener extends StatelessWidget {
+  var usernameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var confirmPasswordController = TextEditingController();
+  final String title;
+  final void Function()? onTap;
+  AuthBlocListener({super.key, required this.title, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -34,21 +36,13 @@ class AuthBlocListener extends StatelessWidget {
           Navigator.pushNamedAndRemoveUntil(
             context,
             AppRoutes.bottomNavBarScreen,
-                (route) => false,
+            (route) => false,
           );
         }
       },
       child: AppButton(
-        title: "Login".tr(),
-        onTap: () {
-          print("EMAIL: ${emailController.text}");
-          print("PASSWORD: ${passwordController.text}");
-
-          context.read<AuthCubit>().login(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-          );
-        },
+        title: title.tr(),
+        onTap: onTap,
       ),
     );
   }

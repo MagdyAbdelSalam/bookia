@@ -11,13 +11,13 @@ class CustomPasswordText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         InkWell(
-          onTap: (){
-          Navigator.pushNamed(context, AppRoutes.forgetPassword);
+          onTap: () {
+            Navigator.pushNamed(context, AppRoutes.forgetPassword);
           },
-          child: Text("Forgot Password?".tr(),style: TextStyle(
-              fontSize: 14.sp,
-              color: Color(0xff6A707C)
-          ),),
+          child: Text(
+            "Forgot Password?".tr(),
+            style: TextStyle(fontSize: 14.sp, color: Color(0xff6A707C)),
+          ),
         ),
       ],
     );

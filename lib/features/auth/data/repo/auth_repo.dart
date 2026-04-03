@@ -16,7 +16,7 @@ class AuthRepo {
         options: Options(contentType: Headers.formUrlEncodedContentType),
       );
       if (response?.statusCode == 200) {
-        saveUserToken(response?.data["data"]["token"]);
+         await saveUserToken(response?.data["data"]["token"]);
         return true;
       } else {
         return false;
@@ -53,7 +53,7 @@ class AuthRepo {
         },
       );
       if (response?.statusCode == 201) {
-        saveUserToken(response?.data["data"]["token"]);
+        await saveUserToken(response?.data["data"]["token"]);
         return true;
       } else {
         return false;

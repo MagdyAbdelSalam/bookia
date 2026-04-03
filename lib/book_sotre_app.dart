@@ -1,3 +1,4 @@
+import 'package:bookstore/core/helper/app_constants.dart';
 import 'package:bookstore/core/routes/app_routes.dart';
 import 'package:bookstore/features/auth/cubit/auth_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -24,7 +25,10 @@ class BookSotreApp extends StatelessWidget {
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: context.supportedLocales,
           locale: context.locale,
-          initialRoute: AppRoutes.welcome,
+          initialRoute: AppConstants.token == null
+              ? AppRoutes.welcome
+              : AppRoutes.bottomNavBarScreen,
+
           onGenerateRoute: AppRoutes.generateRoute,
         ),
       ),

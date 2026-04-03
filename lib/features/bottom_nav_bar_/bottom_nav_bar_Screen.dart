@@ -1,10 +1,13 @@
 import 'package:bookstore/core/theme/app_colors.dart';
 import 'package:bookstore/features/Profile/ui/profile_screen.dart';
 import 'package:bookstore/features/cart/ui/cart_screen.dart';
+import 'package:bookstore/features/home/cubit/home_cubit.dart';
 import 'package:bookstore/features/home/ui/home_screen.dart';
 import 'package:bookstore/features/wishlist/ui/wishlist_screen.dart';
 import 'package:bookstore/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
@@ -18,11 +21,15 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   int activeIndex = 0;
 
   List<Widget> screens = [
-    HomeScreen(),
+    BlocProvider(
+      create: (context) => HomeCubit()..getSlider(),
+      child: HomeScreen(),
+    ),
     WishlistScreen(),
     CartScreen(),
     ProfileScreen()
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,7 +86,10 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
           ),
         ],
       ),
-      body: SafeArea(child: screens[activeIndex]),
+      body: SafeArea(child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12.w),
+        child: screens[activeIndex],
+      )),
     );
   }
 }
